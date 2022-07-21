@@ -110,8 +110,8 @@ export default {
   },
   methods:{
     // 获取热门新碟
-    async getNewset(){
-      let result = await this.$API.reqAlbumNewset();
+    async getNewSet(){
+      let result = await this.$API.reqAlbumNewSet();
       this.hotAlbums = result.albums.slice(0,10);
     },
     // 获取全部新碟
@@ -148,7 +148,7 @@ export default {
     }
   },
   mounted(){
-    this.getNewset();
+    this.getNewSet();
     this.getAll();
   }
 };

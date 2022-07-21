@@ -114,7 +114,7 @@ export const reqDjRadioHot = (cateId, limit = 30, offset = 0) => request({ url: 
 export const reqArtistsList = (type = -1, area = -1, initial = -1, limit = 30, offset = 0) => request({ url: `artist/list?type=${type}&area=${area}&initial=${initial}&limit=${limit}&offset=${offset}`, method: 'GET' });
 
 // 最新专辑 /album/newest
-export const reqAlbumNewset = () => request({ url: "/album/newest", method: 'GET' });
+export const reqAlbumNewSet = () => request({ url: "/album/newest", method: 'GET' });
 
 // 获取用户歌单 /user/playlist?uid=
 export const reqUserPlayList = (uid, cookie) => request({ url: `/user/playlist?uid=${uid}&cookie=${cookie}` });
