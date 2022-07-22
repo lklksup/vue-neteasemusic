@@ -141,7 +141,7 @@ export const reqRelatedPlaylist = (id) => request({ url: `/related/playlist?id=$
 export const reqCloudSearch = (keywords, type, limit = 30, offset = 0, cookie) => request({ url: `/cloudsearch?keywords=${keywords}&type=${type}&limit=${limit}&offset=${offset}&cookie=${cookie}`, method: 'GET' });
 
 // 搜索建议 /search/suggest?keywords=海阔天空
-export const reqSerachSuggest = (keywords) => request({ url: `/search/suggest?keywords=${keywords}`, method: 'GET' });
+export const reqSearchSuggest = (keywords) => request({ url: `/search/suggest?keywords=${keywords}`, method: 'GET' });
 
 // 获取歌词 /lyric?id=33894312
 export const reqlyric = (id) => request({ url: `/lyric?id=${id}`, method: 'get' });

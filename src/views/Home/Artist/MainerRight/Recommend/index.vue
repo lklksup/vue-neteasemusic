@@ -7,8 +7,8 @@
             <a class="more underline" @click="more">更多 &gt;</a>
         </div>          
         <!-- 内容 -->
-        <div class="sgerlist clearfix">
-            <li class="singer" v-for="singer,index in artlist1" :key='index'>
+        <div class="singer-list clearfix">
+            <li class="singer" v-for="singer,index in artist1" :key='index'>
                 <div class="cover">
                     <img v-lazy="singer.img1v1Url">
                     <router-link :to="{path:'/artist/song',query:{id:singer.id}}"  class="msk pointer"></router-link>
@@ -27,8 +27,8 @@
             <a class="more underline">更多 &gt;</a>
         </div>          
         <!-- 内容 -->
-        <div class="sgerlist clearfix">
-            <li class="singer" v-for="singer,index in artlist2" :key='index'>
+        <div class="singer-list clearfix">
+            <li class="singer" v-for="singer,index in artist2" :key='index'>
                 <div class="cover">
                     <img v-lazy="singer.img1v1Url">
                     <router-link :to="{path:'/artist/song',query:{id:singer.id}}"  class="msk pointer"></router-link>
@@ -41,7 +41,7 @@
         </div>
       </div>
       <div class="moreOther clearfix">
-          <li class="sml" v-for="sml,index in artlist3" :key="index">
+          <li class="sml" v-for="sml,index in artist3" :key="index">
              <router-link :to="{path:'/artist/song',query:{id:sml.id}}" class="over underline">{{sml.name}}</router-link>
               <i class="pointer"  v-if="sml.alias.length != 0"></i>
           </li>
@@ -55,9 +55,9 @@ export default {
     name:'recommend',
     data() {
         return {
-            artlist1:[],
-            artlist2:[],
-            artlist3:[],
+            artist1:[],
+            artist2:[],
+            artist3:[],
         }
     },
     methods:{
@@ -65,9 +65,9 @@ export default {
         async getArtistTop(){
             let result = await this.$API.reqArtists(110);
             // console.log(result);
-            this.artlist2 = result.artists.slice(0,10);
-            this.artlist1 = result.artists.slice(10,20);
-            this.artlist3 = result.artists.slice(20);
+            this.artist2 = result.artists.slice(0,10);
+            this.artist1 = result.artists.slice(10,20);
+            this.artist3 = result.artists.slice(20);
         },
         //获取分类歌手
         async getArtistsList(){
@@ -119,7 +119,7 @@ export default {
                     }
                 }
             }   
-            .sgerlist{
+            .singer-list{
                 width: 736px;
                 margin-left: -17px;
                 height: 368px;

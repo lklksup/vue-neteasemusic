@@ -285,8 +285,8 @@ export default {
             this.$refs.ulst2.style.display = 'none';
         },
         // 获取搜索建议
-        async getSearchSuggest(){ 
-            let result = await this.$API.reqSerachSuggest(this.searchText);
+        async reqSearchSuggest(){ 
+            let result = await this.$API.reqSearchSuggest(this.searchText);
             this.searchList = result.result;
         },
         // 打开搜索框
