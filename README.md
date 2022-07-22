@@ -1,4 +1,4 @@
-# PC端网易云音乐页面仿写 vue-neteasemusic
+#网易云音乐页面仿写 vue-neteasemusic
 
 ## 安装
 
