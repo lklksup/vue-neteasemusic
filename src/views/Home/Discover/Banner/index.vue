@@ -7,7 +7,7 @@
                 <img v-lazy="img" v-show="isShow" @click="Go(imgList[imgIndex].type,imgList[imgIndex].id)">     
             </transition>                     
             <!-- 轮播图下的点 -->
-            <ul class="ponintList">
+            <ul class="pointList">
                 <li v-for="(point,index) in imgList" :key="index" @click="changeImg(index)" :class="{active:index == imgIndex}"></li>                
             </ul>
             <!-- 轮播图两侧 -->
@@ -111,7 +111,7 @@ export default {
         this.startBanner();
     },
     //销毁前关闭定时器
-    beforedestroy(){
+    beforeDestroyed(){
         clearInterval(this.timer);
     }
 }
@@ -140,7 +140,7 @@ export default {
                     height: 285px;
                 }
                 /* 点 */
-                .ponintList{
+                .pointList{
                     width: 180px;
                     height: 20px;
                     position: absolute;
