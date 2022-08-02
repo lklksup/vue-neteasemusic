@@ -7,11 +7,12 @@
 
     <!-- 中间部分 -->
     <button class="page" v-for="(page, index) in parseInt(startNumAndEndNum.end)" :key="index"
-      v-show="page >= startNumAndEndNum.start" :class="{ active: isPage(page) }"
-      @click="$emit('getPageNo', page)">{{ page }}</button>
+      v-show="page >= startNumAndEndNum.start" :class="{ active: isPage(page) }" @click="$emit('getPageNo', page)">{{
+          page
+      }}</button>
     <button v-if="startNumAndEndNum.end < totalPage - 1" class="point">...</button>
-    <button v-if="startNumAndEndNum.end < totalPage" @click="$emit('getPageNo', totalPage)"
-      class="page">{{ totalPage }}</button>
+    <button v-if="startNumAndEndNum.end < totalPage" @click="$emit('getPageNo', totalPage)" class="page">{{ totalPage
+    }}</button>
     <button :disabled="pageNo == totalPage" @click="$emit('getPageNo', pageNo + 1)" class="move">下一页&gt;</button>
 
   </div>
