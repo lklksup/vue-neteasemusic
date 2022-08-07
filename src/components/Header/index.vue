@@ -79,7 +79,7 @@
           <div class="phonE"></div>
           <div class="qR">
             <span>扫码登录</span>
-            <div class="updateCode" @click="getCode" v-show="isUpdata">
+            <div class="updateCode" @click="getCode" v-show="isUpdate">
               二维码过期,点击重新获取
             </div>
             <img :src="qrUrl" />
@@ -229,7 +229,7 @@ export default {
       // 是否勾选同意协议
       agree: false,
       // 是否更新二维码
-      isUpdata: false,
+      isUpdate: false,
       // 手机登录栏
       phoneLogin: false,
       // 定时器检查二维码状态
@@ -285,7 +285,7 @@ export default {
         let url = await QRCode.toDataURL(result2.data.qrurl);
         this.qrUrl = url;
       }
-      this.isUpdata = false;
+      this.isUpdate = false;
       this.isShowLogin = true;
       this.checkCode(result.data.unikey);
     },
@@ -295,7 +295,7 @@ export default {
         try {
           var result = await this.$API.reqLoginQrCheck(key);
           if (result.code == 800) {
-            this.isUpdata = true;
+            this.isUpdate = true;
           } else if (result.code == 803) {
             this.$store.dispatch("updateToken", result.cookie);
             clearInterval(this.timer);
